@@ -94,7 +94,7 @@ const newTeams = [];
 
 for (let i = 0; i < teams.length; i++) {
   const currentTeam = teams[i];
-
-  newTeams.push(currentTeam.nome, currentTeam.falli);
+  const newObj = { nome: currentTeam.nome, falli: currentTeam.falli };
+  newTeams.push(newObj);
 }
 console.table(newTeams);
