@@ -74,10 +74,12 @@ const teams = [
 ];
 console.table(teams);
 
+// Generare numeri random al posto degli 0 nelle proprietà “punti” fatti e “falli subiti”.
+
 for (let i = 0; i < teams.length; i++) {
-  const currentBicycle = teams[i];
-  currentBicycle.punti += RandomNumbers(0, 100);
-  currentBicycle.falli += RandomNumbers(0, 100);
+  const currentTeam = teams[i];
+  currentTeam.punti += RandomNumbers(0, 100);
+  currentTeam.falli += RandomNumbers(0, 100);
 }
 console.table(teams);
 
@@ -85,3 +87,14 @@ function RandomNumbers(min, max) {
   let number = Math.floor(Math.random() * (max - min + 1)) + min;
   return number;
 }
+
+// Infine, creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti
+
+const newTeams = [];
+
+for (let i = 0; i < teams.length; i++) {
+  const currentTeam = teams[i];
+
+  newTeams.push(currentTeam.nome, currentTeam.falli);
+}
+console.table(newTeams);
