@@ -27,15 +27,19 @@ const bicycles = [
 console.table(bicycles);
 
 // Stampare la bici con il peso minore
-let lighterBicycle;
+let lighterBicycle = bicycles[0];
 
 for (let i = 0; i < bicycles.length; i++) {
   const currentBicycle = bicycles[i];
-  if (currentBicycle.peso < bicycles[0].peso) {
+  if (currentBicycle.peso < lighterBicycle.peso) {
     lighterBicycle = currentBicycle;
   }
 }
 console.log("Bici più leggera:", lighterBicycle);
+
+// Versione metodo reduce
+let biciPiuLeggera = bicycles.reduce((biciLeggera, bici) => (bici.peso < biciLeggera.peso ? bici : biciLeggera));
+console.log("Bici più leggera", biciPiuLeggera);
 
 // Snack2
 
@@ -98,3 +102,9 @@ for (let i = 0; i < teams.length; i++) {
   newTeams.push(newObj);
 }
 console.table(newTeams);
+
+//Versione metodo map
+
+const nuovaListaTeam = teams.map((squadra) => ({ nome: squadra.nome, falli: squadra.falli }));
+
+console.table(nuovaListaTeam);
